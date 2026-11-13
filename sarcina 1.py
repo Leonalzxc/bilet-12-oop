@@ -1,16 +1,18 @@
-class AniBisecti:
-    def __init__(self, ani):
-        self.ani = ani
+# Bilet nr. 12
+# Sarcina 1
 
-    def filtreaza(self):
-        rezultat = []
-        for an in self.ani:
-            # Verificam daca anul este bisect
-            if an % 400 == 0 or (an % 4 == 0 and an % 100 != 0):
-                rezultat.append(an)
-        return rezultat
+class AniBisecti:  # Объявляем класс для поиска високосных годов
+    def __init__(self, ani):  # Инициализируем объект, self — текущий объект, ani — переданный список годов
+        self.ani = ani  # Сохраняем список годов в атрибуте объекта
+
+    def filtreaza(self):  # Объявляем метод отбора високосных годов
+        rezultat = []  # Создаём пустой список для результата
+        for an in self.ani:  # Перебираем каждый год из списка
+            if an % 400 == 0 or (an % 4 == 0 and an % 100 != 0):  # Проверяем делимость на 400 либо на 4, но не на 100
+                rezultat.append(an)  # Добавляем високосный год в список результата
+        return rezultat  # После завершения цикла возвращаем список високосных годов
 
 
-ani = [2000, 2020, 2023, 2024, 2100]
-obiect = AniBisecti(ani)
-print(obiect.filtreaza())
+ani = [2000, 2020, 2023, 2024, 2100]  # Создаём исходный список годов
+obiect = AniBisecti(ani)  # Создаём объект класса и передаём ему список годов
+print(obiect.filtreaza())  # Вызываем метод и выводим результат [2000, 2020, 2024]
