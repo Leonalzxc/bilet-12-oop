@@ -1,18 +1,20 @@
-class SumaCifrelor:
-    def __init__(self, numere):
-        self.numere = numere
+# Bilet nr. 12
+# Sarcina 2
 
-    def calculeaza(self):
-        rezultat = []
-        for numar in self.numere:
-            suma = 0
-            # Parcurgem fiecare cifra a numarului
-            for cifra in str(abs(numar)):
-                suma = suma + int(cifra)
-            rezultat.append(suma)
-        return rezultat
+class SumaCifrelor:  # Объявляем класс для вычисления суммы цифр
+    def __init__(self, numere):  # Инициализируем объект, self — текущий объект, numere — переданный список чисел
+        self.numere = numere  # Сохраняем список чисел в атрибуте объекта
+
+    def calculeaza(self):  # Объявляем метод вычисления суммы цифр каждого числа
+        rezultat = []  # Создаём пустой список для полученных сумм
+        for numar in self.numere:  # Внешний цикл перебирает числа из списка
+            suma = 0  # Обнуляем сумму перед обработкой каждого нового числа
+            for cifra in str(abs(numar)):  # Берём модуль числа, преобразуем его в строку и перебираем её символы
+                suma = suma + int(cifra)  # Преобразуем символ цифры в целое число и прибавляем к сумме
+            rezultat.append(suma)  # После внутреннего цикла добавляем готовую сумму в список
+        return rezultat  # После обработки всех чисел возвращаем список сумм
 
 
-numere = [123, 45, 678, 90]
-obiect = SumaCifrelor(numere)
-print(obiect.calculeaza())
+numere = [123, 45, 678, 90]  # Создаём исходный список чисел
+obiect = SumaCifrelor(numere)  # Создаём объект класса и передаём ему список чисел
+print(obiect.calculeaza())  # Вызываем метод и выводим результат [6, 9, 21, 9]
